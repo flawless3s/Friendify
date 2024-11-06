@@ -1,0 +1,184 @@
+{
+    "users": [
+        {
+            "user_id": 1,
+            "username": "john_doe",
+            "password": "h",
+            "email": "john@example.com",
+            "profile_picture": "assets/img/testimonials/testimonials-1.jpg",
+            "friends": [
+                2,
+                3,
+                4
+            ],
+            "friend_requests": {
+                "sent": [
+                    4,
+                    5
+                ],
+                "received": [
+                    6,
+                    7
+                ]
+            },
+            "recommended_friends": [
+                8,
+                9
+            ],
+            "posts": [
+                {
+                    "post_id": "101",
+                    "caption": "Beautiful day at the beach!",
+                    "image_url": "assets/img/sunset.jpg",
+                    "likes": 45
+                },
+                {
+                    "post_id": "102",
+                    "caption": "Trying out new recipes!",
+                    "image_url": "assets/img/recipe.jpg",
+                    "likes": 30
+                },
+                {
+                    "post_id": "103",
+                    "caption": "Smile!",
+                    "image_url": "/assets/img/David.png",
+                    "likes": 0
+                }
+            ]
+        },
+        {
+            "user_id": 2,
+            "username": "jane_smith",
+            "password": "here",
+            "email": "jane@example.com",
+            "profile_picture": "assets/img/testimonials/testimonials-2.jpg",
+            "friends": [
+                1,
+                3,
+                3
+            ],
+            "friend_requests": {
+                "sent": [],
+                "received": []
+            },
+            "recommended_friends": [
+                3,
+                8,
+                10
+            ],
+            "posts": [
+                {
+                    "post_id": "201",
+                    "caption": "Morning coffee!",
+                    "image_url": "assets/img/beach_pic.jpg",
+                    "likes": 20
+                },
+                {
+                    "post_id": "202",
+                    "caption": "Old School!",
+                    "image_url": "assets/img/river.jpg",
+                    "likes": 20
+                },
+                {
+                    "post_id": "203",
+                    "caption": "Pretty Flower",
+                    "image_url": "assets/img/flower.jpg",
+                    "likes": 20
+                }
+            ]
+        },
+        {
+            "user_id": 3,
+            "username": "Aayush",
+            "password": "a123",
+            "email": "m@gmail.com",
+            "profile_picture": "assets/img/testimonials/testimonials-3.jpg",
+            "friends": [],
+            "friend_requests": {
+                "sent": [
+                    1,
+                    2
+                ],
+                "received": []
+            },
+            "recommended_friends": [],
+            "posts": [
+                {
+                    "post_id": "301",
+                    "caption": "Morning coffee!",
+                    "image_url": "assets/img/profile-img.jpg",
+                    "likes": 20
+                },
+                {
+                    "post_id": "302",
+                    "caption": "I wonder Who lives Here?!",
+                    "image_url": "assets/img/house.jpg",
+                    "likes": 20
+                },
+                {
+                    "post_id": "303",
+                    "caption": "Delicious",
+                    "image_url": "assets/img/cup.jpg",
+                    "likes": 20
+                },
+                {
+                    "post_id": "304",
+                    "caption": "Three Musketeers!",
+                    "image_url": "/assets/img/people.jpg",
+                    "likes": 0
+                }
+            ]
+        },
+        {
+            "user_id": 4,
+            "username": "Joshi",
+            "password": "guppy",
+            "email": "j@gmail.com",
+            "profile_picture": "assets/img/testimonials/testimonials-4.jpg",
+            "friends": [
+                1,
+                2,
+                3
+            ],
+            "friend_requests": {
+                "sent": [],
+                "received": []
+            },
+            "recommended_friends": [],
+            "posts": [
+                {
+                    "post_id": "401",
+                    "caption": "NMIMS!",
+                    "image_url": "/assets/img/Narsee_Monjee_Institute_of_Management_Studies_Logo.png",
+                    "likes": 0
+                },
+                {
+                    "post_id": "402",
+                    "caption": "sfvs",
+                    "image_url": "/assets/img/people.jpg",
+                    "likes": 0
+                }
+            ]
+        },
+        {
+            "user_id": 5,
+            "username": "Marc",
+            "password": "m1234",
+            "email": "pintya@example.com",
+            "profile_picture": "",
+            "friends": [
+                1,
+                2
+            ],
+            "friend_requests": {
+                "sent": [],
+                "received": []
+            },
+            "recommended_friends": [
+                3,
+                4
+            ],
+            "posts": []
+        }
+    ]
+}
