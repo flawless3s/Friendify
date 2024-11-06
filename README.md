@@ -39,7 +39,7 @@ To set up and run the Friendify project locally:
 
 bash
 ```
-git clone https://github.com/yourusername/friendify.git
+git clone https://github.com/flawless3s/friendify.git
 cd friendify
 ```
 ## Set Up a Virtual Environment:
