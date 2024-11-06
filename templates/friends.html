@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Friends</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
+    <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Cardo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  
+  
+    <!-- Main CSS File -->
+    <link href="{{ url_for('static', filename='assets/css/main.css')}}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- =======================================================
+  * Template Name: PhotoFolio
+  * Template URL: https://bootstrapmade.com/photofolio-bootstrap-photography-website-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style>
+
+</style>
+</head>
+
+<body class="starter-page-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="/dashboard" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <i class="bi bi-camera"></i>
+        <h1 class="sitename">Friendify</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="/dashboard">Home<br></a></li>
+          <!-- <li><a href="about.html">About</a></li> -->
+          <li class="dropdown"><a href="#"><span>Gallery</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="{{ url_for('gallery.your_posts') }}">Your Posts</a></li>
+              <li><a href="{{url_for('gallery.new_post')}}">New Post</a></li>
+            </ul>
+          </li>
+          <li><a href="{{url_for('connections.requests')}}" >Connections</a></li>
+          <li><a href="{{url_for('friends.friends')}}" class="active">Friends</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <!-- <li><a href="about.html">About</a></li> -->
+          <li class="dropdown"><a href="#"><span>{{user['username']}}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul style="width: fit-content;">
+              <li><a href="#" class="active">My Profile</a></li>
+              <li><a href="/logout" class="active">Logout</a></li>
+            </ul>
+          </li>
+          <li></li>
+          <li></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+              <h1>Your Friends</h1>
+              <!-- <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+              <a href="contact.html" class="cta-btn">Available for Hire<br></a> -->
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="/dashboard">Home</a></li>
+            <li class="current">Friends</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+    <section id="testimonials" class="testimonials section">
+      
+      <section id="testimonials" class="testimonials section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2></h2>
+            <p>People You're Friends With</p>
+        </div><!-- End Section Title -->
+        
+        {% if real_friends %}
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          
+          <div class="swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 10000
+                },
+                "slidesPerView": "auto",
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "type": "bullets",
+                  "clickable": true
+                },
+                "breakpoints": {
+                  "320": {
+                    "slidesPerView": 1,
+                    "spaceBetween": 40
+                  },
+                  "1200": {
+                    "slidesPerView": 3,
+                    "spaceBetween": 1
+                  }
+                }
+              }
+            </script>
+    
+            <div class="swiper-wrapper">
+              {% for friend in real_friends %}
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img src="{{ url_for('static', filename=friend.profile_picture) or url_for('static', filename='assets/img/default.jpg') }}" class="testimonial-img" alt="">
+                    <h3>{{ friend.username }}</h3>
+                    <h4>Occupation</h4>
+                  </div>
+                </div>
+              </div>
+              {% endfor %} <!-- End testimonial item -->
+            </div>
+            
+            <!-- Swiper Pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+        {%endif%}
+      
+
+    </section>
+
+    <!-- Starter Section Section -->
+    <section id="starter-section" class="starter-section section">
+      <div class="container mt-5">
+        {%if friends%}
+          <h2 class="text-center">Recommended Friends</h2><br>
+          <table class="table table-hover table-custom">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+        {% endif %}
+          <tbody id="friends-table">
+            {% for friend in friends %}
+                {% if friend %}
+                    <tr data-friend-id="{{ friend.user_id }}">
+                        <td>{{ friend.username }}</td>
+                        <td>{{ friend.email }}</td>
+                        <td><button class="btn btn-primary add-friend-btn" data-friend-id="{{ friend.user_id }}">Add Friend</button></td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+
+        document.querySelectorAll('.add-friend-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const friendId = this.getAttribute('data-friend-id');
+
+                fetch('/friends/add_friend', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ friend_id: parseInt(friendId) })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const row = document.querySelector(`tr[data-friend-id="${friendId}"]`);
+                        if (row) row.remove();
+                        alert('Friend Added Successfully')
+                    } else {
+                        alert('Error adding friend: ' + data.error);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+      });
+  </script>
+    
+
+    </section><!-- /Starter Section Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Friendify</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="line"></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <!-- <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script> -->
+  <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}" defer></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+
+
+</body>
+
+</html>
