@@ -34,9 +34,10 @@ def add_friend():
     friend = next((u for u in users_data['users'] if u['user_id'] == friend_id), None)
 
     if user and friend:
-        # Add friend to user's friends list
-        if friend_id not in user['friends']:
-            user['friends'].append(friend_id)
+
+        if friend_id not in user['friend_requests']['sent'] and user_id not in friend['friend_requests']['received']:
+            user['friend_requests']['sent'].append(friend_id)
+            friend['friend_requests']['received'].append(user_id)
         # Remove from recommended friends
         if friend_id in user['recommended_friends']:
             user['recommended_friends'].remove(friend_id)

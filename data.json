@@ -6,25 +6,17 @@
             "password": "h",
             "email": "john@example.com",
             "profile_picture": "assets/img/testimonials/testimonials-1.jpg",
+            "about": "I'm John Doe, an entrepreneur with over 10 years of experience in launching and scaling successful startups. I have a passion for innovation and strategic growth, which has driven me to help numerous companies break into new markets and achieve sustainable profitability",
             "friends": [
                 2,
                 3,
                 4
             ],
             "friend_requests": {
-                "sent": [
-                    4,
-                    5
-                ],
-                "received": [
-                    6,
-                    7
-                ]
+                "sent": [],
+                "received": []
             },
-            "recommended_friends": [
-                8,
-                9
-            ],
+            "recommended_friends": [],
             "posts": [
                 {
                     "post_id": "101",
@@ -48,24 +40,21 @@
         },
         {
             "user_id": 2,
-            "username": "jane_smith",
+            "username": "Mia_Reyes",
             "password": "here",
             "email": "jane@example.com",
             "profile_picture": "assets/img/testimonials/testimonials-2.jpg",
+            "about": "Hi, I'm Mia Reyes, a digital artist with a flair for storytelling and a keen eye for detail.",
             "friends": [
                 1,
                 3,
-                3
+                4
             ],
             "friend_requests": {
                 "sent": [],
                 "received": []
             },
-            "recommended_friends": [
-                3,
-                8,
-                10
-            ],
+            "recommended_friends": [],
             "posts": [
                 {
                     "post_id": "201",
@@ -93,12 +82,14 @@
             "password": "a123",
             "email": "m@gmail.com",
             "profile_picture": "assets/img/testimonials/testimonials-3.jpg",
-            "friends": [],
+            "about": "I enjoy mentoring junior engineers. Outside of coding, I spend my time playing the guitar, joining hackathons, and tinkering with home automation projects.",
+            "friends": [
+                1,
+                2,
+                4
+            ],
             "friend_requests": {
-                "sent": [
-                    1,
-                    2
-                ],
+                "sent": [],
                 "received": []
             },
             "recommended_friends": [],
@@ -135,10 +126,12 @@
             "password": "guppy",
             "email": "j@gmail.com",
             "profile_picture": "assets/img/testimonials/testimonials-4.jpg",
+            "about": " I help educate local communities on reducing their carbon footprint. When I\u00e2\u20ac\u2122m not working, I love gardening, hiking, and supporting wildlife preservation efforts.",
             "friends": [
                 1,
                 2,
-                3
+                3,
+                5
             ],
             "friend_requests": {
                 "sent": [],
@@ -164,21 +157,29 @@
             "user_id": 5,
             "username": "Marc",
             "password": "m1234",
-            "email": "pintya@example.com",
+            "email": "paji@example.com",
             "profile_picture": "",
+            "about": "",
             "friends": [
-                1,
-                2
+                4
             ],
             "friend_requests": {
                 "sent": [],
                 "received": []
             },
             "recommended_friends": [
-                3,
-                4
+                1,
+                2,
+                3
             ],
-            "posts": []
+            "posts": [
+                {
+                    "post_id": "501",
+                    "caption": "Basic and Advanced Techniques in Cache Optimization",
+                    "image_url": "/assets/img/WhatsApp_Image_2024-04-09_at_10.27.21_PM.jpeg",
+                    "likes": 0
+                }
+            ]
         }
     ]
 }
