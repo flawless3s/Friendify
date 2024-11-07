@@ -35,13 +35,14 @@ def register():
             "password": password,
             "email": email,
             "profile_picture": "",
+            "about": "",
             "friends": [],
             "friend_requests": {
                 "sent": [],
                 "received": []
             },
             "recommended_friends": [i['user_id'] for i in data_file['users']],
-            "posts": []
+            "posts": []            
         }
 
         data_file["users"].append(new_user)

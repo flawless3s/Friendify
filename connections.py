@@ -67,6 +67,7 @@ def accept_request(user_id, requester_id):
         for user in data["users"]:
             if user["user_id"] == requester_id:
                 user["friends"].append(user_id)
+                user["friend_requests"]["sent"].remove(user_id)
                 break
         write_data(data)
         return jsonify(success=True), 200
